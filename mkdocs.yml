@@ -1,0 +1,135 @@
+site_name: David Sandoval Tech
+site_description: Blog personal de David Sandoval
+site_author: "https://davidsandoval.tech"
+
+theme:
+  name: material # TEMA 
+
+  palette: 
+  - media: "(prefers-color-scheme: dark)" # MODO OSCURO
+    scheme: slate
+    primary: black
+    accent: indigo
+    toggle:
+      icon: material/brightness-7
+      name: Switch to system preference
+
+  - media: "(prefers-color-scheme: light)" # MODO CLARO
+    scheme: default
+    primary: black
+    accent: indigo
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  language: es # IDIOMA ESPAÑOL
+
+  # ------------------------------------------
+  # ICONOS DEL BLOG
+  # ------------------------------------------
+  logo: assets/icono.png # CAMBIAR
+  favicon: assets/favicon.png # CAMBIAR
+
+  # ------------------------------------------
+  # PROPIEDADES BLOQUES DE CÓDIGO
+  # ------------------------------------------
+  features:
+    - content.code.copy
+    - content.code.annotate
+    
+    # NAVEGACIÓN
+    #- navigation.tabs
+    #- navigation.tabs.sticky
+    - navigation.top
+    - navigation.footer
+    - navigation.sections  
+    # - toc.integrate # Juntar TOC y nav
+
+# ------------------------------------------
+# PROPIEDADES DE LAS ETIQUETAS
+# ------------------------------------------
+# (1) -----  SI QUEREMOS PONERLES IMAGENES A LAS ETIQUETAS
+  #icon:
+  #  tag:
+  #    tag1_id: fontawesome/brands/html5  # CAMBIAR
+  #    tag2_id: fontawesome/brands/js     # CAMBIAR
+  #    tag3_id: fontawesome/brands/css3   # CAMBIAR
+   
+plugins:
+  - search
+  
+  - blog:
+     enabled: true
+     blog_dir: .
+     blog_toc: false
+     post_dir: "posts"
+     pagination_per_page: 5
+     
+     categories: true
+     categories_name: Categorías 
+     categories_slugify_separator: "-"
+     categories_toc: false
+     categories_allowed: # Categorías del blog
+       - Ciberseguridad
+       - IA
+       - Radar
+       - Divulgación
+
+     archive_name: Archivo
+     archive: false
+     #archive_date_format: MM/yyyy # Por si quisiera agrupar por años
+     #archive_pagination: true
+     #archive_pagination_per_page: 5
+
+     post_url_format: "{slug}"
+  - tags
+  # - social --> PARA LAS SOCIAL CARDS --> SI NO SE USA BORRAR .CACHE --> DEFINIR BIEN PLANTILLA
+
+extra:
+  social:
+    - icon: simple/youtube
+      link: CAMBIAR
+    - icon: simple/github
+      link: CAMBIAR
+    - icon: simple/gitlab
+      link: CAMBIAR
+    - icon: fontawesome/brands/twitter
+      link: CAMBIAR
+    - icon: fontawesome/brands/linkedin
+      link: CAMBIAR
+    - icon: simple/spotify
+      link: CAMBIAR
+  generator: false # quitar el made with
+
+# Por si quiero asociar imagenes a los tags (ver (1) -- prop. etiquetas)
+  #tags:
+  #  tag1: tag1_id
+  #  tag2: tag2_id
+  #  tag3: tag3_id 
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  
+  # SOCIAL MEDIA
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+copyright: Copyright &copy; 2025 David Sandoval
+
+nav:
+    - Blog: index.md
+
